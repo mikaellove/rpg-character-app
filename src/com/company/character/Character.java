@@ -65,10 +65,6 @@ public abstract class Character {
         // throw cant quip exception
     }
 
-    public void unEquip(Item item){
-        equipment.remove(item.slot);
-    }
-
     public Map<Slot, Item> getEquipment(){
         return equipment;
     }
