@@ -1,22 +1,21 @@
 package com.company.character;
 
 import com.company.PrimaryAttribute;
-import com.company.equipment.Item;
-import com.company.equipment.Slot;
-import com.company.equipment.Weapon;
-import com.company.equipment.WeaponType;
+import com.company.equipment.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Character {
     public String name;
-    protected int level;
+    public int level;
 
     public PrimaryAttribute attributes = new PrimaryAttribute(0,0,0);
     public PrimaryAttribute totalAttributes;
 
     private Map<Slot, Item> equipment = new HashMap<>();
+    protected ArmorType[] equippableArmor;
+    WeaponType[] equippableWeapons;
 
     public Character(String name) {
         this.name = name;
@@ -25,7 +24,7 @@ public abstract class Character {
 
     public abstract void levelUp();
 
-    protected void equipWeapon(Weapon weapon, WeaponType[] equippableWeapons)
+    public void equipWeapon(Weapon weapon)
     {
         if(weapon.level > level)
         {
@@ -46,7 +45,27 @@ public abstract class Character {
         // throw can't equip exception
     }
 
-    protected void unEquip(Item item){
+    public void equipArmor(Armor armor)
+    {
+        if(armor.level > level)
+        {
+            // Throw level exception
+            return;
+        }
+
+        for(int i = 0; i < equippableArmor.length; i++)
+        {
+            if(armor.type == equippableArmor[i])
+            {
+                equipment.put(armor.slot,armor);
+                return;
+            }
+        }
+
+        // throw cant quip exception
+    }
+
+    public void unEquip(Item item){
         equipment.remove(item.slot);
     }
 
