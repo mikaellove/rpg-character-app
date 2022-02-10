@@ -11,9 +11,9 @@ public abstract class Character {
     public int level;
 
     public PrimaryAttribute attributes = new PrimaryAttribute(0,0,0);
-    public PrimaryAttribute totalAttributes;
 
-    private Map<Slot, Item> equipment = new HashMap<>();
+    private Map<Slot, Armor> equipedArmor = new HashMap<>();
+    protected Map<Slot, Weapon> equipedWeapon = new HashMap<>();
     protected ArmorType[] equippableArmor;
     WeaponType[] equippableWeapons;
 
@@ -37,7 +37,7 @@ public abstract class Character {
         {
             if(weapon.type == equippableWeapons[i])
             {
-                equipment.put(weapon.slot,weapon);
+                equipedWeapon.put(weapon.slot,weapon);
                 return;
             }
         }
@@ -57,7 +57,7 @@ public abstract class Character {
         {
             if(armor.type == equippableArmor[i])
             {
-                equipment.put(armor.slot,armor);
+                equipedArmor.put(armor.slot,armor);
                 return;
             }
         }
@@ -65,7 +65,23 @@ public abstract class Character {
         // throw cant quip exception
     }
 
-    public Map<Slot, Item> getEquipment(){
-        return equipment;
+    public abstract int getCharacterDps();
+
+    public PrimaryAttribute getTotalAttributes()
+    {
+        PrimaryAttribute totalAttributes = new PrimaryAttribute(0,0,0);
+        equipedArmor.forEach((key,value) -> {
+            totalAttributes.baseIntelligence += value.getAttributes().baseIntelligence;
+            totalAttributes.baseStrength += value.getAttributes().baseStrength;
+            totalAttributes.baseDexterity += value.getAttributes().baseDexterity;
+        });
+
+        equipedWeapon.forEach((key,value) -> {
+            totalAttributes.baseIntelligence += value.getAttributes().baseIntelligence;
+            totalAttributes.baseDexterity += value.getAttributes().baseDexterity;
+            totalAttributes.baseStrength += value.getAttributes().baseStrength;
+        });
+
+        return totalAttributes;
     }
 }

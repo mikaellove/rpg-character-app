@@ -26,4 +26,11 @@ public class Mage extends Character{
         attributes.baseDexterity += 1;
         attributes.baseIntelligence += 5;
     }
+
+    @Override
+    public int getCharacterDps() {
+        double weaponDps = equipedWeapon.get(Slot.WEAPON).GetWeaponDPS();
+        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().baseIntelligence/100);
+        return castedDPS;
+    }
 }

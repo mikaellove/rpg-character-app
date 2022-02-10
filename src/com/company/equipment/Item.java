@@ -16,4 +16,6 @@ public class Item {
         this.level = level;
         this.slot = slot;
     }
+
+
 }

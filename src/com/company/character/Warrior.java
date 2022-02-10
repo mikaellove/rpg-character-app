@@ -1,6 +1,7 @@
 package com.company.character;
 
 import com.company.equipment.ArmorType;
+import com.company.equipment.Slot;
 import com.company.equipment.WeaponType;
 
 public class Warrior extends Character{
@@ -28,4 +29,10 @@ public class Warrior extends Character{
         attributes.baseIntelligence += 1;
     }
 
+    @Override
+    public int getCharacterDps() {
+        double weaponDps = equipedWeapon.get(Slot.WEAPON).GetWeaponDPS();
+        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().baseStrength/100);
+        return castedDPS;
+    }
 }
