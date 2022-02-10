@@ -4,8 +4,8 @@ import com.company.equipment.ArmorType;
 import com.company.equipment.WeaponType;
 
 public class Rogue extends Character {
-    WeaponType[] equippableWeapons = {WeaponType.STAFF,WeaponType.WAND};
-    ArmorType[] equippableArmor = {ArmorType.CLOTH};
+    WeaponType[] equippableWeapons = {WeaponType.DAGGER,WeaponType.SWORD};
+    ArmorType[] equippableArmor = {ArmorType.MAIL,ArmorType.LEATHER};
 
     public Rogue(String name) {
         super(name);

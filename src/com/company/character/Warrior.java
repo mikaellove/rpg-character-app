@@ -4,8 +4,8 @@ import com.company.equipment.ArmorType;
 import com.company.equipment.WeaponType;
 
 public class Warrior extends Character{
-    WeaponType[] equippableWeapons = {WeaponType.STAFF,WeaponType.WAND};
-    ArmorType[] equippableArmor = {ArmorType.CLOTH};
+    WeaponType[] equippableWeapons = {WeaponType.AXE,WeaponType.HAMMER,WeaponType.SWORD};
+    ArmorType[] equippableArmor = {ArmorType.MAIL, ArmorType.PLATE};
 
     public Warrior(String name) {
         super(name);
