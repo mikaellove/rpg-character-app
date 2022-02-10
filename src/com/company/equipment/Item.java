@@ -3,7 +3,7 @@ package com.company.equipment;
 import com.company.PrimaryAttribute;
 
 public class Item {
-    PrimaryAttribute attributes = new PrimaryAttribute();
+    PrimaryAttribute attributes = new PrimaryAttribute(0,0,0);
 
     public String name;
     public int level;
