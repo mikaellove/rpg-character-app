@@ -3,6 +3,10 @@ package com.company.equipment;
 import com.company.PrimaryAttribute;
 
 public class Item {
+    public PrimaryAttribute getAttributes() {
+        return attributes;
+    }
+
     PrimaryAttribute attributes = new PrimaryAttribute(0,0,0);
 
     public String name;

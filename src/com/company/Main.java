@@ -62,7 +62,6 @@ public class Main {
         System.out.println("Enter number to choose weapon:");
         createdCharacters.get(activeCharacter).equipWeapon(weaponsToChooseFrom.get(scanner.nextInt()));
         //createdCharacters.get(activeCharacter).getEquipment().size();
-        System.out.println(createdCharacters.get(activeCharacter).getEquipment().size());
     }
 
     private static void CreateWeapons(String[] names, Map<String,Weapon> createdWeapons)
