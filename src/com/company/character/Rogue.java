@@ -1,20 +1,21 @@
 package com.company.character;
 
-import com.company.equipment.*;
+import com.company.equipment.ArmorType;
+import com.company.equipment.WeaponType;
 
-public class Mage extends Character{
+public class Rogue extends Character {
     WeaponType[] equippableWeapons = {WeaponType.STAFF,WeaponType.WAND};
     ArmorType[] equippableArmor = {ArmorType.CLOTH};
 
-    public Mage(String name) {
+    public Rogue(String name) {
         super(name);
 
         super.equippableArmor = this.equippableArmor;
         super.equippableWeapons = this.equippableWeapons;
 
-        attributes.baseStrength = 1;
-        attributes.baseDexterity = 1;
-        attributes.baseIntelligence = 8;
+        attributes.baseStrength = 2;
+        attributes.baseDexterity = 6;
+        attributes.baseIntelligence = 1;
 
     }
 
@@ -23,7 +24,7 @@ public class Mage extends Character{
         level += 1;
 
         attributes.baseStrength += 1;
-        attributes.baseDexterity += 1;
-        attributes.baseIntelligence += 5;
+        attributes.baseDexterity += 4;
+        attributes.baseIntelligence += 1;
     }
 }
