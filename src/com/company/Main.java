@@ -12,17 +12,57 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String activeCharacter = "";
+
+        Map<Integer, Weapon> weaponsToChooseFrom = new HashMap<>();
         Map<String, Character> createdCharacters = new HashMap<>();
         Map<String, Weapon> createdWeapons = new HashMap<>();
         Map<String, Armor> createdArmor = new HashMap<>();
-        Scanner scanner = new Scanner(System.in);
-        String[] names = {"hej", "då", "vad"};
-        String[] armorNames = {"blue", "red", "white"};
-        Slot[] armorTypes = {Slot.BODY,Slot.HEAD,Slot.LEGS};
-        CreateArmor(armorNames,armorTypes,createdArmor);
-        CreateWeapons(names,createdWeapons);
-        System.out.println(createdWeapons.get(names[1]).type);
-        System.out.println(createdArmor.get(armorNames[0]).slot);
+
+        String[] armorNames = {"Chest Armor", "Head Armor", "Leg Armor"};
+        Slot[] armorSlots = {Slot.BODY,Slot.HEAD,Slot.LEGS};
+        CreateArmor(armorNames,armorSlots,createdArmor);
+
+        String[] weaponNames = {"The Blood Drop", "Slayer Of Goats", "The Okay Weapon"};
+        CreateWeapons(weaponNames,createdWeapons);
+
+        System.out.println("Input number to create character....");
+        System.out.println("1: Mage");
+        System.out.println("Enter number: ");
+
+        switch (scanner.nextInt()){
+            case 1:
+                System.out.println("Give character a name:");
+                String name = scanner.next();
+                createdCharacters.put(name,new Mage(name));
+                activeCharacter = name;
+        }
+
+        System.out.println("Input number to choose action....");
+        System.out.println("1: Level up character.");
+        System.out.println("2: Equip Weapon.");
+        System.out.println("3: Equip Armor.");
+        switch(scanner.nextInt())
+        {
+            case 1:
+                createdCharacters.get(activeCharacter).levelUp();
+                System.out.println(createdCharacters.get(activeCharacter).level);
+                break;
+            case 2:
+                int count = 0;
+                for(Map.Entry<String,Weapon> entry : createdWeapons.entrySet())
+                {
+                    count++;
+                    weaponsToChooseFrom.put(count,entry.getValue());
+                    System.out.println(count + ":" + entry.getKey() + " is of type " + entry.getValue().type + " and can be equiped at level " + entry.getValue().level);
+                }
+        }
+
+        System.out.println("Enter number to choose weapon:");
+        createdCharacters.get(activeCharacter).equipWeapon(weaponsToChooseFrom.get(scanner.nextInt()));
+        //createdCharacters.get(activeCharacter).getEquipment().size();
+        System.out.println(createdCharacters.get(activeCharacter).getEquipment().size());
     }
 
     private static void CreateWeapons(String[] names, Map<String,Weapon> createdWeapons)
