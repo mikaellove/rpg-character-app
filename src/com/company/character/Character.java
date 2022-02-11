@@ -9,8 +9,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Character {
-    public String name;
-    public int level;
+    public String getName() {
+        return name;
+    }
+
+    private String name;
+
+    public int getLevel() {
+        return level;
+    }
+
+    protected int level;
 
     private String characterClass = "";
 

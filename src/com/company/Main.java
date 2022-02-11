@@ -131,8 +131,8 @@ public class Main {
     private static void displayCharacterStats(Scanner scanner,Character activeCharacter)
     {
         System.out.println(activeCharacter.getCharacterClass());
-        System.out.println("Character Name: " + activeCharacter.name);
-        System.out.println("Character Level: " + activeCharacter.level);
+        System.out.println("Character Name: " + activeCharacter.getName());
+        System.out.println("Character Level: " + activeCharacter.getLevel());
         System.out.println("");
         System.out.println("Character Stats:");
         System.out.println("Strength: " + activeCharacter.getAttributes().getStrength());
@@ -148,7 +148,7 @@ public class Main {
 
     private static void equipArmorMenu(Scanner scanner, Character activeCharacter, Map<Integer, Armor> armorToChooseFrom, Map<String, Armor> createdArmor)
     {
-        System.out.println(activeCharacter.name + " " + activeCharacter.getCharacterClass() + " Level: " + activeCharacter.level);
+        System.out.println(activeCharacter.getName() + " " + activeCharacter.getCharacterClass() + " Level: " + activeCharacter.getLevel());
         int count = 0;
         for(Map.Entry<String,Armor> entry : createdArmor.entrySet())
         {
@@ -172,7 +172,7 @@ public class Main {
 
     private static void equipWeaponMenu(Scanner scanner, Character activeCharacter, Map<Integer, Weapon> weaponsToChooseFrom, Map<String, Weapon> createdWeapons)
     {
-        System.out.println(activeCharacter.name + " " + activeCharacter.getCharacterClass() + " Level: " + activeCharacter.level);
+        System.out.println(activeCharacter.getName() + " " + activeCharacter.getCharacterClass() + " Level: " + activeCharacter.getLevel());
         int count = 0;
         for(Map.Entry<String,Weapon> entry : createdWeapons.entrySet())
         {
