@@ -5,8 +5,8 @@ import com.company.equipment.*;
 public class Mage extends Character{
     public final String characterClass = "Mage";
 
-    WeaponType[] equippableWeapons = {WeaponType.STAFF,WeaponType.WAND};
-    ArmorType[] equippableArmor = {ArmorType.CLOTH};
+    private final WeaponType[] equippableWeapons = {WeaponType.STAFF,WeaponType.WAND};
+    private final ArmorType[] equippableArmor = {ArmorType.CLOTH};
 
     public Mage(String name) {
         super(name);

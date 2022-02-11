@@ -135,9 +135,9 @@ public class Main {
         System.out.println("Character Level: " + activeCharacter.level);
         System.out.println("");
         System.out.println("Character Stats:");
-        System.out.println("Strength: " + activeCharacter.attributes.getStrength());
-        System.out.println("Dexterity: " + activeCharacter.attributes.getDexterity());
-        System.out.println("Intelligence: " + activeCharacter.attributes.getIntelligence());
+        System.out.println("Strength: " + activeCharacter.getAttributes().getStrength());
+        System.out.println("Dexterity: " + activeCharacter.getAttributes().getDexterity());
+        System.out.println("Intelligence: " + activeCharacter.getAttributes().getIntelligence());
         System.out.println("DPS: " + activeCharacter.getCharacterDps());
         System.out.println("Press Enter To Continue....");
         try {

@@ -9,8 +9,8 @@ public class Ranger extends Character{
     public final String characterClass = "Ranger";
 
 
-    WeaponType[] equippableWeapons = {WeaponType.BOW};
-    ArmorType[] equippableArmor = {ArmorType.LEATHER,ArmorType.MAIL};
+    private final WeaponType[] equippableWeapons = {WeaponType.BOW};
+    private final ArmorType[] equippableArmor = {ArmorType.LEATHER,ArmorType.MAIL};
 
     public Ranger(String name) {
         super(name);

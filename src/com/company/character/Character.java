@@ -9,7 +9,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Character {
-    public String characterClass = "";
+    public String name;
+    public int level;
+
+    private String characterClass = "";
+
+    protected PrimaryAttribute attributes = new PrimaryAttribute(0,0,0);
+
+    private Map<Slot, Armor> equipedArmor = new HashMap<>();
+    protected Map<Slot, Weapon> equipedWeapon = new HashMap<>();
+
+    protected ArmorType[] equippableArmor;
+    protected WeaponType[] equippableWeapons;
+
+    public Character(String name) {
+        this.name = name;
+        this.level = 1;
+    }
+
+    public abstract int getCharacterDps();
+
+    public abstract void levelUp();
+
+    public PrimaryAttribute getAttributes() {
+        return attributes;
+    }
 
     public String getCharacterClass() {
         return characterClass;
@@ -18,23 +42,6 @@ public abstract class Character {
     public void setCharacterClass(String characterClass) {
         this.characterClass = characterClass;
     }
-
-    public String name;
-    public int level;
-
-    public PrimaryAttribute attributes = new PrimaryAttribute(0,0,0);
-
-    private Map<Slot, Armor> equipedArmor = new HashMap<>();
-    protected Map<Slot, Weapon> equipedWeapon = new HashMap<>();
-    protected ArmorType[] equippableArmor;
-    WeaponType[] equippableWeapons;
-
-    public Character(String name) {
-        this.name = name;
-        this.level = 1;
-    }
-
-    public abstract void levelUp();
 
     public void equipWeapon(Weapon weapon)
     {
@@ -68,6 +75,26 @@ public abstract class Character {
         throwItemException();
     }
 
+
+    public PrimaryAttribute getTotalAttributes()
+    {
+        int intelligence = 0;
+        int dexterity = 0;
+        int strength = 0;
+        for(Armor armor : equipedArmor.values())
+        {
+            intelligence += armor.getAttributes().getIntelligence();
+            dexterity += armor.getAttributes().getDexterity();
+            strength += armor.getAttributes().getStrength();
+        }
+
+        intelligence += attributes.getIntelligence();
+        dexterity += attributes.getDexterity();
+        strength += attributes.getStrength();
+
+        return new PrimaryAttribute(strength,dexterity,intelligence);
+    }
+
     private void throwItemException()
     {
         try {
@@ -93,26 +120,5 @@ public abstract class Character {
         }
 
         return false;
-    }
-
-    public abstract int getCharacterDps();
-
-    public PrimaryAttribute getTotalAttributes()
-    {
-        int intelligence = 0;
-        int dexterity = 0;
-        int strength = 0;
-        for(Armor armor : equipedArmor.values())
-        {
-            intelligence += armor.getAttributes().getIntelligence();
-            dexterity += armor.getAttributes().getDexterity();
-            strength += armor.getAttributes().getStrength();
-        }
-
-        intelligence += attributes.getIntelligence();
-        dexterity += attributes.getDexterity();
-        strength += attributes.getStrength();
-
-        return new PrimaryAttribute(strength,dexterity,intelligence);
     }
 }

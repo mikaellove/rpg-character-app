@@ -9,8 +9,8 @@ public class Warrior extends Character{
     public final String characterClass = "Warrior";
 
 
-    WeaponType[] equippableWeapons = {WeaponType.AXE,WeaponType.HAMMER,WeaponType.SWORD};
-    ArmorType[] equippableArmor = {ArmorType.MAIL, ArmorType.PLATE};
+    private final WeaponType[] equippableWeapons = {WeaponType.AXE,WeaponType.HAMMER,WeaponType.SWORD};
+    private final ArmorType[] equippableArmor = {ArmorType.MAIL, ArmorType.PLATE};
 
     public Warrior(String name) {
         super(name);

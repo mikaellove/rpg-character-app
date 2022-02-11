@@ -9,8 +9,8 @@ public class Rogue extends Character {
     public final String characterClass = "Rogue";
 
 
-    WeaponType[] equippableWeapons = {WeaponType.DAGGER,WeaponType.SWORD};
-    ArmorType[] equippableArmor = {ArmorType.MAIL,ArmorType.LEATHER};
+    private final WeaponType[] equippableWeapons = {WeaponType.DAGGER,WeaponType.SWORD};
+    private final ArmorType[] equippableArmor = {ArmorType.MAIL,ArmorType.LEATHER};
 
     public Rogue(String name) {
         super(name);
