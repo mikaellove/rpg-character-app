@@ -154,7 +154,7 @@ public class Main {
         {
             count++;
             armorToChooseFrom.put(count,entry.getValue());
-            System.out.println(count + ":" + entry.getKey() + " is of type " + entry.getValue().type + " and can be equiped at level " + entry.getValue().level);
+            System.out.println(count + ":" + entry.getKey() + " is of type " + entry.getValue().getType() + " and can be equiped at level " + entry.getValue().level);
         }
 
         System.out.println("Enter Number To Equip Weapon:");
@@ -178,7 +178,7 @@ public class Main {
         {
             count++;
             weaponsToChooseFrom.put(count,entry.getValue());
-            System.out.println(count + ":" + entry.getKey() + " is of type " + entry.getValue().type + " and can be equiped at level " + entry.getValue().level);
+            System.out.println(count + ":" + entry.getKey() + " is of type " + entry.getValue().getType() + " and can be equiped at level " + entry.getValue().level);
         }
 
         System.out.println("Enter Number To Equip Weapon:");

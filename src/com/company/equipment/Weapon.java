@@ -3,7 +3,7 @@ package com.company.equipment;
 import com.company.PrimaryAttribute;
 
 public class Weapon extends Item{
-    public WeaponType type;
+    private WeaponType type;
     private int damage;
     private double attackSpeed;
 
@@ -21,5 +21,9 @@ public class Weapon extends Item{
         int castedDPS = (int) dps;
 
         return castedDPS;
+    }
+
+    public WeaponType getType() {
+        return type;
     }
 }

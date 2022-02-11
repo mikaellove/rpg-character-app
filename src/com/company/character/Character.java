@@ -42,7 +42,7 @@ public abstract class Character {
 
         for(int i = 0; i < equippableWeapons.length; i++)
         {
-            if(weapon.type == equippableWeapons[i])
+            if(weapon.getType() == equippableWeapons[i])
             {
                 equipedWeapon.put(weapon.slot,weapon);
                 return;
@@ -58,7 +58,7 @@ public abstract class Character {
 
         for(int i = 0; i < equippableArmor.length; i++)
         {
-            if(armor.type == equippableArmor[i])
+            if(armor.getType() == equippableArmor[i])
             {
                 equipedArmor.put(armor.slot,armor);
                 return;
