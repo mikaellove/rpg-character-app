@@ -159,11 +159,14 @@ public class Main {
 
         System.out.println("Enter Number To Equip Weapon:");
         try {
-            Armor chosenArmor = armorToChooseFrom.get(scanner.nextInt());
+            int chosenOption = scanner.nextInt();
+            if(chosenOption > count) throw  new InvalidOptionException();
+
+            Armor chosenArmor = armorToChooseFrom.get(chosenOption);
             activeCharacter.equipArmor(chosenArmor);
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + " Try Again....");
         }
     }
 
@@ -180,11 +183,14 @@ public class Main {
 
         System.out.println("Enter Number To Equip Weapon:");
         try {
-            Weapon chosenWeapon = weaponsToChooseFrom.get(scanner.nextInt());
+            int chosenOption = scanner.nextInt();
+            if(chosenOption > count) throw new InvalidOptionException();
+
+            Weapon chosenWeapon = weaponsToChooseFrom.get(chosenOption);
             activeCharacter.equipWeapon(chosenWeapon);
         }
         catch (Exception e){
-            System.out.println(e);
+            System.out.println(e + " Try Again....");
         }
     }
 
