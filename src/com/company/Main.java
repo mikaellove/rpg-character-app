@@ -198,7 +198,7 @@ public class Main {
     {
         for(int i = 0; i < names.length; i++)
         {
-            Weapon wep = new Weapon(names[i],randomInt(),Slot.WEAPON,randomInt(),randomDouble(),WeaponType.values()[new Random().nextInt(WeaponType.values().length)]);
+            Weapon wep = new Weapon(names[i],randomInt(),randomInt(),randomDouble(),WeaponType.values()[new Random().nextInt(WeaponType.values().length)]);
             createdWeapons.put(names[i],wep);
         }
     }

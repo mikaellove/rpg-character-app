@@ -7,8 +7,8 @@ public class Weapon extends Item{
     private int damage;
     private double attackSpeed;
 
-    public Weapon(String name, int level, Slot slot,int damage, double attackSpeed, WeaponType weaponType) {
-        super(name, level, slot);
+    public Weapon(String name, int level,int damage, double attackSpeed, WeaponType weaponType) {
+        super(name, level, Slot.WEAPON);
 
         this.type = weaponType;
         this.damage = damage;
