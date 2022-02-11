@@ -2,11 +2,23 @@ package com.company.character;
 
 import com.company.PrimaryAttribute;
 import com.company.equipment.*;
+import com.company.exceptions.ItemException;
+import com.company.exceptions.LevelException;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Character {
+    public String characterClass = "";
+
+    public String getCharacterClass() {
+        return characterClass;
+    }
+
+    public void setCharacterClass(String characterClass) {
+        this.characterClass = characterClass;
+    }
+
     public String name;
     public int level;
 
@@ -26,12 +38,7 @@ public abstract class Character {
 
     public void equipWeapon(Weapon weapon)
     {
-        if(weapon.level > level)
-        {
-            // Throw level exception
-            return;
-        }
-
+        if(levelCheck(weapon)) return;
 
         for(int i = 0; i < equippableWeapons.length; i++)
         {
@@ -42,16 +49,12 @@ public abstract class Character {
             }
         }
 
-        // throw can't equip exception
+        throwItemException();
     }
 
     public void equipArmor(Armor armor)
     {
-        if(armor.level > level)
-        {
-            // Throw level exception
-            return;
-        }
+        if(levelCheck(armor)) return;
 
         for(int i = 0; i < equippableArmor.length; i++)
         {
@@ -62,7 +65,34 @@ public abstract class Character {
             }
         }
 
-        // throw cant quip exception
+        throwItemException();
+    }
+
+    private void throwItemException()
+    {
+        try {
+            throw new ItemException();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
+    private boolean levelCheck(Item item){
+        try {
+            if(item.level > level)
+            {
+                throw new LevelException();
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+            return true;
+        }
+
+        return false;
     }
 
     public abstract int getCharacterDps();
