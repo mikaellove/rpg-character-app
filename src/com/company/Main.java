@@ -135,9 +135,9 @@ public class Main {
         System.out.println("Character Level: " + activeCharacter.level);
         System.out.println("");
         System.out.println("Character Stats:");
-        System.out.println("Strength: " + activeCharacter.attributes.baseStrength);
-        System.out.println("Dexterity: " + activeCharacter.attributes.baseStrength);
-        System.out.println("Intelligence: " + activeCharacter.attributes.baseIntelligence);
+        System.out.println("Strength: " + activeCharacter.attributes.getStrength());
+        System.out.println("Dexterity: " + activeCharacter.attributes.getDexterity());
+        System.out.println("Intelligence: " + activeCharacter.attributes.getIntelligence());
         System.out.println("DPS: " + activeCharacter.getCharacterDps());
         System.out.println("Press Enter To Continue....");
         try {
@@ -198,7 +198,7 @@ public class Main {
     {
         for(int i = 0; i < names.length; i++)
         {
-            Weapon wep = new Weapon(new PrimaryAttribute(randomInt(),randomInt(),randomInt()),names[i],randomInt(),Slot.WEAPON,randomInt(),randomDouble(),WeaponType.values()[new Random().nextInt(WeaponType.values().length)]);
+            Weapon wep = new Weapon(names[i],randomInt(),Slot.WEAPON,randomInt(),randomDouble(),WeaponType.values()[new Random().nextInt(WeaponType.values().length)]);
             createdWeapons.put(names[i],wep);
         }
     }

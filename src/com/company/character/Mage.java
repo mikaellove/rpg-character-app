@@ -15,19 +15,18 @@ public class Mage extends Character{
         super.equippableArmor = this.equippableArmor;
         super.equippableWeapons = this.equippableWeapons;
 
-        attributes.baseStrength = 1;
-        attributes.baseDexterity = 1;
-        attributes.baseIntelligence = 8;
-
+        super.attributes.setStrength(1);
+        super.attributes.setDexterity(1);
+        super.attributes.setIntelligence(8);
     }
 
     @Override
     public void levelUp() {
         level += 1;
 
-        attributes.baseStrength += 1;
-        attributes.baseDexterity += 1;
-        attributes.baseIntelligence += 5;
+        attributes.setStrength(attributes.getStrength() + 1);
+        attributes.setDexterity(attributes.getDexterity() + 1);
+        attributes.setIntelligence(attributes.getIntelligence() + 5);
     }
 
     @Override
@@ -36,7 +35,7 @@ public class Mage extends Character{
         if(weapon == null) return 0;
 
         double weaponDps = weapon.GetWeaponDPS();
-        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().baseIntelligence/100);
+        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().getIntelligence()/100);
         return castedDPS;
     }
 }

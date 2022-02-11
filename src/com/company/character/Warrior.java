@@ -19,19 +19,18 @@ public class Warrior extends Character{
         super.equippableArmor = this.equippableArmor;
         super.equippableWeapons = this.equippableWeapons;
 
-        attributes.baseStrength = 5;
-        attributes.baseDexterity = 2;
-        attributes.baseIntelligence = 1;
-
+        super.attributes.setStrength(5);
+        super.attributes.setDexterity(2);
+        super.attributes.setIntelligence(1);
     }
 
     @Override
     public void levelUp() {
         level += 1;
 
-        attributes.baseStrength += 3;
-        attributes.baseDexterity += 2;
-        attributes.baseIntelligence += 1;
+        attributes.setStrength(attributes.getStrength() + 3);
+        attributes.setDexterity(attributes.getDexterity() + 2);
+        attributes.setIntelligence(attributes.getIntelligence() + 1);
     }
 
     @Override
@@ -40,7 +39,7 @@ public class Warrior extends Character{
         if(weapon == null) return 0;
 
         double weaponDps = weapon.GetWeaponDPS();
-        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().baseStrength/100);
+        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().getStrength()/100);
         return castedDPS;
     }
 }

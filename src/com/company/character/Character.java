@@ -99,19 +99,20 @@ public abstract class Character {
 
     public PrimaryAttribute getTotalAttributes()
     {
-        PrimaryAttribute totalAttributes = new PrimaryAttribute(0,0,0);
-        equipedArmor.forEach((key,value) -> {
-            totalAttributes.baseIntelligence += value.getAttributes().baseIntelligence;
-            totalAttributes.baseStrength += value.getAttributes().baseStrength;
-            totalAttributes.baseDexterity += value.getAttributes().baseDexterity;
-        });
+        int intelligence = 0;
+        int dexterity = 0;
+        int strength = 0;
+        for(Armor armor : equipedArmor.values())
+        {
+            intelligence += armor.getAttributes().getIntelligence();
+            dexterity += armor.getAttributes().getDexterity();
+            strength += armor.getAttributes().getStrength();
+        }
 
-        equipedWeapon.forEach((key,value) -> {
-            totalAttributes.baseIntelligence += value.getAttributes().baseIntelligence;
-            totalAttributes.baseDexterity += value.getAttributes().baseDexterity;
-            totalAttributes.baseStrength += value.getAttributes().baseStrength;
-        });
+        intelligence += attributes.getIntelligence();
+        dexterity += attributes.getDexterity();
+        strength += attributes.getStrength();
 
-        return totalAttributes;
+        return new PrimaryAttribute(strength,dexterity,intelligence);
     }
 }

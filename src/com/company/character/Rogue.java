@@ -19,19 +19,18 @@ public class Rogue extends Character {
         super.equippableArmor = this.equippableArmor;
         super.equippableWeapons = this.equippableWeapons;
 
-        attributes.baseStrength = 2;
-        attributes.baseDexterity = 6;
-        attributes.baseIntelligence = 1;
-
+        super.attributes.setStrength(2);
+        super.attributes.setDexterity(6);
+        super.attributes.setIntelligence(1);
     }
 
     @Override
     public void levelUp() {
         level += 1;
 
-        attributes.baseStrength += 1;
-        attributes.baseDexterity += 4;
-        attributes.baseIntelligence += 1;
+        attributes.setStrength(attributes.getStrength() + 1);
+        attributes.setDexterity(attributes.getDexterity() + 4);
+        attributes.setIntelligence(attributes.getIntelligence() + 1);
     }
 
     @Override
@@ -40,7 +39,7 @@ public class Rogue extends Character {
         if(weapon == null) return 0;
 
         double weaponDps = weapon.GetWeaponDPS();
-        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().baseDexterity/100);
+        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().getDexterity()/100);
         return castedDPS;
     }
 }
