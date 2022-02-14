@@ -34,12 +34,15 @@ public class Warrior extends Character{
     }
 
     @Override
-    public int getCharacterDps() {
+    public double getCharacterDps() {
         Weapon weapon = equipedWeapon.get(Slot.WEAPON);
-        if(weapon == null) return 0;
+        double weaponDps = 1;
 
-        double weaponDps = weapon.GetWeaponDPS();
-        int castedDPS = (int)weaponDps * (1 + getTotalAttributes().getStrength()/100);
+        if(weapon != null){
+            weaponDps = weapon.GetWeaponDPS();
+        }
+
+        double castedDPS = weaponDps * (1 + getTotalAttributes().getStrength()/100);
         return castedDPS;
     }
 }

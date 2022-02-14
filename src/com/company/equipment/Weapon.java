@@ -18,9 +18,8 @@ public class Weapon extends Item{
     public double GetWeaponDPS()
     {
         double dps = damage * attackSpeed;
-        int castedDPS = (int) dps;
 
-        return castedDPS;
+        return dps;
     }
 
     public WeaponType getType() {

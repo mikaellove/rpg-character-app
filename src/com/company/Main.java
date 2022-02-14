@@ -160,7 +160,7 @@ public class Main {
         System.out.println("Enter Number To Equip Weapon:");
         try {
             int chosenOption = scanner.nextInt();
-            if(chosenOption > count) throw  new InvalidOptionException();
+            if(chosenOption > count) throw new InvalidOptionException();
 
             Armor chosenArmor = armorToChooseFrom.get(chosenOption);
             activeCharacter.equipArmor(chosenArmor);

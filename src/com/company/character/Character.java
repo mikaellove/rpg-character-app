@@ -36,7 +36,7 @@ public abstract class Character {
         this.level = 1;
     }
 
-    public abstract int getCharacterDps();
+    public abstract double getCharacterDps();
 
     public abstract void levelUp();
 
@@ -52,36 +52,36 @@ public abstract class Character {
         this.characterClass = characterClass;
     }
 
-    public void equipWeapon(Weapon weapon)
+    public boolean equipWeapon(Weapon weapon) throws LevelException, ItemException
     {
-        if(levelCheck(weapon)) return;
+        if(levelCheck(weapon)) return false;
 
         for(int i = 0; i < equippableWeapons.length; i++)
         {
             if(weapon.getType() == equippableWeapons[i])
             {
                 equipedWeapon.put(weapon.slot,weapon);
-                return;
+                return true;
             }
         }
 
-        throwItemException();
+        throw new ItemException();
     }
 
-    public void equipArmor(Armor armor)
+    public boolean equipArmor(Armor armor) throws LevelException, ItemException
     {
-        if(levelCheck(armor)) return;
+        if(levelCheck(armor)) return false;
 
         for(int i = 0; i < equippableArmor.length; i++)
         {
             if(armor.getType() == equippableArmor[i])
             {
                 equipedArmor.put(armor.slot,armor);
-                return;
+                return true;
             }
         }
 
-        throwItemException();
+        throw new ItemException();
     }
 
 
@@ -104,30 +104,14 @@ public abstract class Character {
         return new PrimaryAttribute(strength,dexterity,intelligence);
     }
 
-    private void throwItemException()
-    {
-        try {
-            throw new ItemException();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e);
-        }
-    }
+    private boolean levelCheck(Item item) throws LevelException{
 
-    private boolean levelCheck(Item item){
-        try {
             if(item.level > level)
             {
                 throw new LevelException();
             }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e);
-            return true;
-        }
-
-        return false;
+            return false;
     }
+
+
 }
