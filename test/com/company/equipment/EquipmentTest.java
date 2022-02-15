@@ -2,15 +2,11 @@ package com.company.equipment;
 
 import com.company.PrimaryAttribute;
 import com.company.character.Character;
-import com.company.character.Mage;
 import com.company.character.Warrior;
 import com.company.exceptions.ItemException;
 import com.company.exceptions.LevelException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.logging.Level;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,7 +19,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCharacterEquippingHighLevelWeapon_ShouldThrowException()
+    public void TestCharacterEquippingHighLevelWeapon_LevelNotEqual_ShouldThrowException()
     {
         Weapon axe = new Weapon("axe",2,10,1.5,WeaponType.AXE);
 
@@ -32,7 +28,7 @@ class EquipmentTest {
         }, "exception not thrown");
     }
     @Test
-    public void TestCharacterEquippingHighLevelArmor_ShouldThrowException(){
+    public void TestCharacterEquippingHighLevelArmor_LevelNotEqual_ShouldThrowException(){
         Armor plateBodyArmor = new Armor(new PrimaryAttribute(0,0,0),"Body Armor",2,Slot.BODY,ArmorType.PLATE);
 
         LevelException levelException = assertThrows(LevelException.class, () -> {
@@ -41,7 +37,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCharacterEquippingWrongWeaponType_ShouldThrowException(){
+    public void TestCharacterEquippingWrongWeaponType_WeaponTypeNotEqual_ShouldThrowException(){
         Weapon bow = new Weapon("The Bow",1,10,1.5,WeaponType.BOW);
 
         ItemException itemException = assertThrows(ItemException.class, () -> {
@@ -50,7 +46,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCharacterEquippingWrongArmorType_ShouldThrowException(){
+    public void TestCharacterEquippingWrongArmorType_ArmorTypeNotEqual_ShouldThrowException(){
         Armor clothArmor = new Armor(new PrimaryAttribute(0,0,0),"Cloth Armor",1,Slot.BODY,ArmorType.CLOTH);
 
         ItemException itemException = assertThrows(ItemException.class, () -> {
@@ -59,7 +55,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestEquipValidWeapon(){
+    public void TestEquipValidWeapon_EqualValue_ShouldPass(){
         Weapon sword =  new Weapon("Axe",1,1,1,WeaponType.SWORD);
 
         boolean weaponIsValid = false;
@@ -72,7 +68,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestEquipValidArmor(){
+    public void TestEquipValidArmor_EqualValue_ShouldPass(){
         Armor armorPiece = new Armor(new PrimaryAttribute(0,0,0),"The Armor Piece",1,Slot.HEAD,ArmorType.PLATE);
 
         boolean armorIsValid = false;
@@ -85,7 +81,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCalculateTotalPrimaryAttribute()
+    public void TestCalculateTotalPrimaryAttribute_EqualValue_ShouldPass()
     {
         Armor armor = new Armor(new PrimaryAttribute(2,2,2),"The Armor",2,Slot.HEAD,ArmorType.MAIL);
 
@@ -102,7 +98,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCalculateDPSWithNoWeaponEquiped(){
+    public void TestCalculateDPSWithNoWeaponEquiped_EqualValue_ShouldPass(){
         double expectedDPS = 1*(1 + (5/100));
 
         double characterDPS = character.getCharacterDps();
@@ -110,7 +106,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCalculateDPSWithWeaponEquiped(){
+    public void TestCalculateDPSWithWeaponEquiped_EqualValue_ShouldPass(){
         Weapon weapon = new Weapon("The Weapon",1,7,1.1,WeaponType.AXE);
 
         try {
@@ -125,7 +121,7 @@ class EquipmentTest {
     }
 
     @Test
-    public void TestCalculateDPSWithWeaponAndArmorEquiped(){
+    public void TestCalculateDPSWithWeaponAndArmorEquiped_EqualValue_ShouldPass(){
         Weapon weapon = new Weapon("The Weapon",1,7,1.1,WeaponType.AXE);
         Armor armor = new Armor(new PrimaryAttribute(1,1,1),"The Armor",1,Slot.HEAD,ArmorType.PLATE);
 

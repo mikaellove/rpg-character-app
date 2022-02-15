@@ -1,22 +1,19 @@
 package com.company.character;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
 
     @Test
-    public void characterShouldBeLevelOneWhenCreated()
+    public void TestCharacterShouldBeLevelOneWhenCreated_EqualLevel_ShouldPass()
     {
         Character character = new Mage("Love");
         int level = character.getLevel();
         Assertions.assertEquals(1,level);
     }
     @Test
-    public void shouldLevelUp()
+    public void TestCharacterLevelingUp_EqualLevel_ShouldPass()
     {
         Character character = new Mage("Love");
         character.levelUp();
@@ -24,7 +21,7 @@ class CharacterTest {
         Assertions.assertEquals(2,level);
     }
     @Test
-    public void mageShouldHaveDefaultAttributesAtLevelOne()
+    public void TestMageShouldHaveDefaultAttributesAtLevelOne_EqualAttributes_ShouldPass()
     {
         Character character = new Mage("Love");
         int strength = character.getAttributes().getStrength();
@@ -35,7 +32,7 @@ class CharacterTest {
         Assertions.assertEquals(8,intelligence);
     }
     @Test
-    public void warriorShouldHaveDefaultAttributesAtLevelOne()
+    public void TestWarriorShouldHaveDefaultAttributesAtLevelOne_EqualAttributes_ShouldPass()
     {
         Character character = new Warrior("Love");
         int strength = character.getAttributes().getStrength();
@@ -47,7 +44,7 @@ class CharacterTest {
     }
 
     @Test
-    public void rangerShouldHaveDefaultAttributesAtLevelOne()
+    public void TestRangerShouldHaveDefaultAttributesAtLevelOne_EqualAttributes_ShouldPass()
     {
         Character character = new Ranger("Love");
         int strength = character.getAttributes().getStrength();
@@ -59,7 +56,7 @@ class CharacterTest {
     }
 
     @Test
-    public void rogueShouldHaveDefaultAttributesAtLevelOne()
+    public void TestRogueShouldHaveDefaultAttributesAtLevelOne_EqualAttributes_ShouldPass()
     {
         Character character = new Rogue("Love");
         int strength = character.getAttributes().getStrength();
@@ -70,7 +67,7 @@ class CharacterTest {
         Assertions.assertEquals(1,intelligence);
     }
     @Test
-    public void mageShouldHaveCorrectAttributesWhenLevelTwo()
+    public void TestMageShouldHaveCorrectAttributesWhenLevelTwo_EqualAttributes_ShouldPass()
     {
         Character character = new Mage("Love");
         character.levelUp();
@@ -83,7 +80,7 @@ class CharacterTest {
     }
 
     @Test
-    public void warriorShouldHaveCorrectAttributesWhenLevelTwo()
+    public void TestWarriorShouldHaveCorrectAttributesWhenLevelTwo_EqualAttributes_ShouldPass()
     {
         Character character = new Warrior("Love");
         character.levelUp();
@@ -96,7 +93,7 @@ class CharacterTest {
     }
 
     @Test
-    public void rangerShouldHaveCorrectAttributesWhenLevelTwo()
+    public void TestRangerShouldHaveCorrectAttributesWhenLevelTwo_EqualAttributes_ShouldPass()
     {
         Character character = new Ranger("Love");
         character.levelUp();
@@ -109,7 +106,7 @@ class CharacterTest {
     }
 
     @Test
-    public void rogueShouldHaveCorrectAttributesWhenLevelTwo()
+    public void TestRogueShouldHaveCorrectAttributesWhenLevelTwo_EqualAttributes_ShouldPass()
     {
         Character character = new Rogue("Love");
         character.levelUp();
