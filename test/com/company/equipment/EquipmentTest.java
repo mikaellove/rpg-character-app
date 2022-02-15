@@ -23,7 +23,7 @@ class EquipmentTest {
     {
         Weapon axe = new Weapon("axe",2,10,1.5,WeaponType.AXE);
 
-        LevelException level = assertThrows(LevelException.class, () -> {
+        assertThrows(LevelException.class, () -> {
             character.equipWeapon(axe);
         }, "exception not thrown");
     }
@@ -31,7 +31,7 @@ class EquipmentTest {
     public void TestCharacterEquippingHighLevelArmor_LevelNotEqual_ShouldThrowException(){
         Armor plateBodyArmor = new Armor(new PrimaryAttribute(0,0,0),"Body Armor",2,Slot.BODY,ArmorType.PLATE);
 
-        LevelException levelException = assertThrows(LevelException.class, () -> {
+        assertThrows(LevelException.class, () -> {
             character.equipArmor(plateBodyArmor);
         }, "exception not thrown");
     }
@@ -40,7 +40,7 @@ class EquipmentTest {
     public void TestCharacterEquippingWrongWeaponType_WeaponTypeNotEqual_ShouldThrowException(){
         Weapon bow = new Weapon("The Bow",1,10,1.5,WeaponType.BOW);
 
-        ItemException itemException = assertThrows(ItemException.class, () -> {
+        assertThrows(ItemException.class, () -> {
             character.equipWeapon(bow);
         }, "Exception not thrown");
     }
@@ -49,7 +49,7 @@ class EquipmentTest {
     public void TestCharacterEquippingWrongArmorType_ArmorTypeNotEqual_ShouldThrowException(){
         Armor clothArmor = new Armor(new PrimaryAttribute(0,0,0),"Cloth Armor",1,Slot.BODY,ArmorType.CLOTH);
 
-        ItemException itemException = assertThrows(ItemException.class, () -> {
+        assertThrows(ItemException.class, () -> {
             character.equipArmor(clothArmor);
         }, "Exception not thrown");
     }
