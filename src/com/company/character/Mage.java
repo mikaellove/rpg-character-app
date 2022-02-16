@@ -2,6 +2,11 @@ package com.company.character;
 
 import com.company.equipment.*;
 
+/**
+ * A child class of Character.java.
+ * Contains string of specified class.
+ * Holds which weapons and armor this class can use and passes them down in the constructor to the base class.
+ */
 public class Mage extends Character{
     public final String characterClass = "Mage";
 

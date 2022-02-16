@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * These are the attributes a character and an armor piece have.
+ * Contains setters and getters for each attribute.
+ */
 public class PrimaryAttribute {
     private int baseStrength;
 

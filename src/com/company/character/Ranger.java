@@ -4,7 +4,11 @@ import com.company.equipment.ArmorType;
 import com.company.equipment.Slot;
 import com.company.equipment.Weapon;
 import com.company.equipment.WeaponType;
-
+/**
+ * A child class of Character.java.
+ * Contains string of specified class.
+ * Holds which weapons and armor this class can use and passes them down in the constructor to the base class.
+ */
 public class Ranger extends Character{
     public final String characterClass = "Ranger";
 

@@ -2,6 +2,9 @@ package com.company.equipment;
 
 import com.company.PrimaryAttribute;
 
+/**
+ * Base class for armor and weapon classes
+ */
 public class Item {
 
     public String name;

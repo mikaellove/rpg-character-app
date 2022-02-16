@@ -8,6 +8,12 @@ import com.company.exceptions.LevelException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Base class for all the character classes, Mage, Rogue, Ranger, Warrior.
+ * Contains the Armor and weapons that are currently equiped and the armor and weapons that can be equiped by a specific class, these are set by the derived classes in its constructor.
+ * Contains the attributes of a character as well as the level.
+ * Holds methods for equipping armor and weapons, throws exceptions if the character is not eligible for the item.
+ */
 public abstract class Character {
     public String getName() {
         return name;

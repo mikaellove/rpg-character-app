@@ -10,6 +10,13 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Application is started from here.
+ * Contains hashmap for the characters that have been created.
+ * Contains hashmaps for holding the weapon and armor that has been created, as well as hashmaps that are used for picking a weapon from.
+ * Contains methods for creating weapons and armor with random stats.
+ * Contains methods for all the different menus, equipping armor/weapon, viewing stats and creating your character.
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -83,6 +90,16 @@ public class Main {
         }
     }
 
+    /**
+     * The main menu of the application invokes all the submenus then uses recursion to go back to the main menu.
+     * Throws an invalid option exception, catches it then displays it and takes the user back to the main menu to try again.
+     * @param activeCharacter
+     * @param weaponsToChooseFrom
+     * @param armorToChooseFrom
+     * @param createdCharacters
+     * @param createdWeapons
+     * @param createdArmor
+     */
     private static void mainMenu(
             Character activeCharacter,
             Map<Integer, Weapon> weaponsToChooseFrom,
@@ -114,7 +131,7 @@ public class Main {
                     mainMenu(activeCharacter,weaponsToChooseFrom,armorToChooseFrom,createdCharacters,createdWeapons,createdArmor);
                     break;
                 case 4:
-                    displayCharacterStats(scanner,activeCharacter);
+                    displayCharacterStats(activeCharacter);
                     mainMenu(activeCharacter,weaponsToChooseFrom,armorToChooseFrom,createdCharacters,createdWeapons,createdArmor);
                     break;
                 default:
@@ -128,7 +145,7 @@ public class Main {
 
     }
 
-    private static void displayCharacterStats(Scanner scanner,Character activeCharacter)
+    private static void displayCharacterStats(Character activeCharacter)
     {
         System.out.println(activeCharacter.getCharacterClass());
         System.out.println("Character Name: " + activeCharacter.getName());
