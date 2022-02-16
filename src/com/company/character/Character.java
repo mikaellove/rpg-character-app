@@ -15,15 +15,8 @@ import java.util.Map;
  * Holds methods for equipping armor and weapons, throws exceptions if the character is not eligible for the item.
  */
 public abstract class Character {
-    public String getName() {
-        return name;
-    }
 
     private String name;
-
-    public int getLevel() {
-        return level;
-    }
 
     protected int level;
 
@@ -46,8 +39,12 @@ public abstract class Character {
 
     public abstract void levelUp();
 
-    public PrimaryAttribute getAttributes() {
-        return attributes;
+    public String getName() {
+        return name;
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public String getCharacterClass() {
@@ -56,6 +53,10 @@ public abstract class Character {
 
     public void setCharacterClass(String characterClass) {
         this.characterClass = characterClass;
+    }
+
+    public PrimaryAttribute getAttributes() {
+        return attributes;
     }
 
     public boolean equipWeapon(Weapon weapon) throws LevelException, ItemException
@@ -89,7 +90,6 @@ public abstract class Character {
 
         throw new ItemException();
     }
-
 
     public PrimaryAttribute getTotalAttributes()
     {
